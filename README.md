@@ -4,7 +4,7 @@ This repository contains the source code for my personal portfolio site, built w
 
 ## Overview
 
-The goal of this site is to act as a living portfolio — highlighting both technical systems (such as AI-driven applications and web platforms) and experimental creative work.
+The goal of this site is to act as a living portfolio, highlighting both technical systems (such as AI-driven applications and web platforms) and experimental creative work.
 
 ## Tech Stack
 
