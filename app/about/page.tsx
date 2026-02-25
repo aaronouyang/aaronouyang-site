@@ -1,14 +1,19 @@
 import Link from "next/link";
-import SiteShell from "./components/SiteShell";
+import SiteShell from "../components/SiteShell";
 
-export default function Home() {
+export const metadata = {
+  title: "About",
+};
+
+export default function AboutPage() {
   return (
     <SiteShell>
-      <div className="grid gap-8 text-sm text-muted">
+      <div className="grid gap-8 text-sm text-muted -mt-4">
         <section className="grid gap-2">
-          <ul className="list-diamond space-y-2 text-foreground">
+          <p className="italic text-foreground/90">currently</p>
+          <ul className="list-arrow">
             <li>
-              Building{" "}
+              reduced after-hours triage time by 66% with{" "}
               <Link
                 href="https://www.noctia.ca/"
                 target="_blank"
@@ -17,18 +22,10 @@ export default function Home() {
               >
                 Noctia
               </Link>
-              , an after-hours AI receptionist for clinics.
+              .
             </li>
-            <li>Exploring voice AI workflows and operational tooling.</li>
-          </ul>
-        </section>
-
-        <section className="grid gap-2">
-          <p className="italic text-foreground/90">what i&apos;ve been building:</p>
-          <ul className="list-arrow">
-            <li>Reduced after-hours triage time by 66% with Noctia.</li>
             <li>
-              Built a{" "}
+              built a{" "}
               <Link
                 href="https://chromewebstore.google.com/detail/youtube-subscription-fold/lfhpffnakgkibgfggclnnijmphgclcmk"
                 target="_blank"
@@ -39,15 +36,37 @@ export default function Home() {
               </Link>{" "}
               for organizing YouTube subscriptions.
             </li>
-            <li>Delivered professional 3D design work across commercial and personal projects.</li>
+            <li>
+              delivered professional 3D design work across commercial and personal projects.
+            </li>
           </ul>
         </section>
 
         <section className="grid gap-2">
-          <p className="italic text-foreground/90">highlights:</p>
+          <p className="italic text-foreground/90">previously</p>
           <ul className="list-arrow">
-            <li>Designing minimal interfaces that surface the right signal.</li>
-            <li>Spent several years in 3D design before shifting to product and AI.</li>
+            <li>
+              software engineer @{" "}
+              <Link
+                href="https://miedu.ca/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4"
+              >
+                Mi Education
+              </Link>
+            </li>
+            <li>
+              3D designer @{" "}
+              <Link
+                href="https://iyk.app"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4"
+              >
+                iyk
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -56,8 +75,7 @@ export default function Home() {
             href="/projects"
             className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-border/50"
           >
-            see what i&apos;ve built
-            <span aria-hidden="true" className="text-muted">|</span>
+            check out my projects
           </Link>
         </div>
       </div>

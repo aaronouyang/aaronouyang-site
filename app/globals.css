@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #eaeaea;
+  --muted: #a3a3a3;
+  --accent: #eaeaea;
+  --card: #141414;
+  --border: #262626;
+  --grid-dot: rgba(255, 255, 255, 0.04);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, #050505 0%, #0a0a0a 55%, #0f0f10 100%);
+  background-size: 140% 140%;
+  animation: background-drift 18s ease-in-out infinite;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Subtle dotted grid background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--grid-dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes background-drift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 40%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* List markers: diamond (◆) and arrow (↳) - applied via classes */
+.list-diamond {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-diamond > li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.list-diamond > li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  font-size: 0.65em;
+  color: var(--muted);
+  top: 0.05em;
+}
+
+.list-arrow {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.25rem;
+}
+
+.list-arrow > li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.15rem;
+}
+
+.list-arrow > li::before {
+  content: "■";
+  position: absolute;
+  left: 0;
+  font-size: 0.9em;
+  color: var(--muted);
 }
