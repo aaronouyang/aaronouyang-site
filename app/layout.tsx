@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   },
   description:
     "Aaron Ouyang builds minimalist, technical products across AI, software, and 3D design.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
