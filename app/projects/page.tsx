@@ -10,7 +10,7 @@ const projects = [
     description:
       "After-hours AI receptionist that captures, summarizes, and prioritizes patient calls when offices are closed, helping staff review and follow up more efficiently. Increased after-hours call triage time by 300%.",
     href: "https://www.noctia.ca/",
-    label: "Live site",
+    label: "live site",
   },
   {
     title: "YouTube Subscription Folders",
@@ -24,7 +24,7 @@ const projects = [
     description:
       "Selected 3D work spanning commercial and personal projects. Full archive coming soon.",
     href: "/3d",
-    label: "View 3D",
+    label: "view 3D",
   },
 ];
 

@@ -21,7 +21,7 @@ export default function ThreeDPage() {
           </h2>
           <p className="mt-3 leading-7">
             I&apos;ll add featured pieces, case studies, and process notes. For now,
-            view my professional 3D portfolio.
+            view my professional 3D portfolio. Personal art lives on ArtStation.
           </p>
           <a
             href="https://www.figma.com/deck/ILevoHEMtB8pjgQzPGyReq/Portfolio?node-id=1-2595&t=XAZFTDxvnXUT1hOO-1"
@@ -30,6 +30,14 @@ export default function ThreeDPage() {
             className="mt-4 inline-flex items-center font-medium text-foreground underline underline-offset-4"
           >
             view the portfolio{"\u00A0"}→
+          </a>
+          <a
+            href="https://aaronouyang.artstation.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 flex w-fit items-center text-sm font-medium text-foreground underline underline-offset-4"
+          >
+            visit ArtStation{"\u00A0"}→
           </a>
         </section>
       </div>
