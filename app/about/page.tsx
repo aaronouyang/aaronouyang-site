@@ -37,9 +37,6 @@ export default function AboutPage() {
               for organizing YouTube subscriptions.
             </li>
             <li>
-              delivered professional 3D design work across product launches, landing pages, and social campaigns.
-            </li>
-            <li>
               CS @{" "}
               <Link
                 href="https://www.queensu.ca/"
@@ -76,7 +73,7 @@ export default function AboutPage() {
                 rel="noreferrer"
                 className="font-semibold underline underline-offset-4"
               >
-                iyk
+                IYK
               </Link>
             </li>
           </ul>

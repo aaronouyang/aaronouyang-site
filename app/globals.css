@@ -7,7 +7,7 @@
   --accent: #eaeaea;
   --card: #141414;
   --border: #262626;
-  --grid-dot: rgba(255, 255, 255, 0.04);
+  --grid-dot: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
