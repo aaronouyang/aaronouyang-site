@@ -22,7 +22,6 @@ export default function AboutPage() {
               >
                 Noctia
               </Link>
-              .
             </li>
             <li>
               built a{" "}
@@ -34,7 +33,7 @@ export default function AboutPage() {
               >
                 Chrome extension
               </Link>{" "}
-              for organizing YouTube subscriptions.
+              for organizing YouTube subscriptions
             </li>
             <li>
               CS @{" "}
@@ -46,7 +45,6 @@ export default function AboutPage() {
               >
                 Queen&apos;s
               </Link>
-              .
             </li>
           </ul>
         </section>
