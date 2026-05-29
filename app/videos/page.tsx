@@ -35,7 +35,7 @@ function getYouTubeThumbnail(href: string) {
     return null;
   }
 
-  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
 async function getYouTubeTitle(href: string) {
@@ -99,7 +99,7 @@ export default async function VideosPage() {
                       src={video.thumbnail}
                       alt=""
                       fill
-                      sizes="(min-width: 640px) 320px, calc(100vw - 48px)"
+                      sizes="(min-width: 640px) 576px, calc(100vw - 48px)"
                       className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     />
                   </div>
