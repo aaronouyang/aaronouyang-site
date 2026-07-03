@@ -7,6 +7,7 @@ export const metadata = {
 
 const videoLinks: string[] = [
   // Add public YouTube links here. Titles and thumbnails are derived automatically.
+  "https://youtu.be/yHYkUJGckoU",
   "https://youtu.be/JInT2dtn44Y",
   "https://youtu.be/hmxdJPh4U80",
 ];
