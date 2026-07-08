@@ -22,6 +22,12 @@ const footerLinks = [
     openInNewTab: true,
   },
   {
+    href: "https://www.youtube.com/@aaron_ouyang",
+    label: "YouTube",
+    icon: "youtube",
+    openInNewTab: true,
+  },
+  {
     href: "/AaronOuyang_Resume.pdf",
     label: "Resume",
     icon: "resume",
@@ -43,6 +49,12 @@ function FooterIcon({ icon }: { icon: string }) {
       return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+      );
+    case "youtube":
+      return (
+        <svg width="22" height={size} viewBox="0 3 24 18" fill="currentColor" aria-hidden>
+          <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.53 3.568 12 3.568 12 3.568s-7.53 0-9.391.501A2.994 2.994 0 0 0 .502 6.186C0 8.059 0 11.968 0 11.968s0 3.91.502 5.782a2.994 2.994 0 0 0 2.107 2.117c1.861.501 9.391.501 9.391.501s7.53 0 9.391-.501a2.994 2.994 0 0 0 2.107-2.117C24 15.878 24 11.968 24 11.968s0-3.91-.502-5.782zM9.545 15.513v-7.09l6.273 3.545-6.273 3.545z" />
         </svg>
       );
     case "email":
