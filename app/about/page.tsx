@@ -24,6 +24,18 @@ export default function AboutPage() {
               </Link>
             </li>
             <li>
+              making{" "}
+              <Link
+                href="https://dpad.quest/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4"
+              >
+                DPAD
+              </Link>
+              , a new way to rank the games you play
+            </li>
+            <li>
               built a{" "}
               <Link
                 href="https://chromewebstore.google.com/detail/youtube-subscription-fold/lfhpffnakgkibgfggclnnijmphgclcmk"

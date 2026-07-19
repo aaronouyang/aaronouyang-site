@@ -13,6 +13,13 @@ const projects = [
     label: "live site",
   },
   {
+    title: "DPAD",
+    description:
+      "Social game-ranking site where players build personal ladders with an automatic scoring system, view friends' lists and ratings, and discuss picks in comments.",
+    href: "https://dpad.quest/",
+    label: "live site",
+  },
+  {
     title: "YouTube Subscription Folders",
     description:
       "Chrome extension for organizing YouTube subscriptions into collapsible folders with drag & drop and light/dark mode compatibility.",
