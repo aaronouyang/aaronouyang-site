@@ -13,14 +13,14 @@ export default function AboutPage() {
           <p className="italic text-foreground/90">currently</p>
           <ul className="list-arrow">
             <li>
-              reduced after-hours triage time by 66% with{" "}
+              apprentice engineer @{" "}
               <Link
-                href="https://www.noctia.ca/"
+                href="https://www.ravl.io/"
                 target="_blank"
                 rel="noreferrer"
                 className="font-semibold underline underline-offset-4"
               >
-                Noctia
+                RAVL
               </Link>
             </li>
             <li>
@@ -35,6 +35,34 @@ export default function AboutPage() {
               </Link>
               , a new way to rank the games you play
             </li>
+          </ul>
+        </section>
+
+        <section className="grid gap-2">
+          <p className="italic text-foreground/90">previously</p>
+          <ul className="list-arrow">
+            <li>
+              CS @{" "}
+              <Link
+                href="https://www.queensu.ca/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4"
+              >
+                Queen&apos;s
+              </Link>
+            </li>
+            <li>
+              founder @{" "}
+              <Link
+                href="https://www.noctia.ca/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4"
+              >
+                Noctia
+              </Link>
+            </li>
             <li>
               built a{" "}
               <Link
@@ -47,23 +75,6 @@ export default function AboutPage() {
               </Link>{" "}
               for organizing YouTube subscriptions
             </li>
-            <li>
-              CS @{" "}
-              <Link
-                href="https://www.queensu.ca/"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
-              >
-                Queen&apos;s
-              </Link>
-            </li>
-          </ul>
-        </section>
-
-        <section className="grid gap-2">
-          <p className="italic text-foreground/90">previously</p>
-          <ul className="list-arrow">
             <li>
               software engineer @{" "}
               <Link
