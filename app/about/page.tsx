@@ -13,7 +13,7 @@ export default function AboutPage() {
           <p className="italic text-foreground/90">currently</p>
           <ul className="list-arrow">
             <li>
-              apprentice engineer @{" "}
+              engineer @{" "}
               <Link
                 href="https://www.ravl.io/"
                 target="_blank"
