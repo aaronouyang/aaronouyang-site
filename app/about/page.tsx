@@ -24,6 +24,17 @@ export default function AboutPage() {
               </Link>
             </li>
             <li>
+              founder @{" "}
+              <Link
+                href="https://www.noctia.ca/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4"
+              >
+                Noctia
+              </Link>
+            </li>
+            <li>
               making{" "}
               <Link
                 href="https://dpad.quest/"
@@ -50,17 +61,6 @@ export default function AboutPage() {
                 className="font-semibold underline underline-offset-4"
               >
                 Queen&apos;s
-              </Link>
-            </li>
-            <li>
-              founder @{" "}
-              <Link
-                href="https://www.noctia.ca/"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
-              >
-                Noctia
               </Link>
             </li>
             <li>
