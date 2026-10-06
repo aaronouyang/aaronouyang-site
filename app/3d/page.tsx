@@ -6,20 +6,20 @@ export const metadata = {
 
 export default function ThreeDPage() {
   return (
-    <SiteShell>
-      <div className="grid gap-10 text-sm text-muted">
-        <section className="max-w-2xl text-base leading-7 text-foreground">
+    <SiteShell title="3D Work">
+      <div className="art-page">
+        <section className="page-intro">
           <p>
             I spent several years delivering professional 3D design work. A
             curated selection will live here soon.
           </p>
         </section>
 
-        <section className="rounded-lg border border-border bg-card p-6">
-          <h2 className="text-xs font-mono uppercase tracking-[0.28em] text-foreground">
+        <section className="art-note">
+          <h2 className="section-title">
             Coming soon
           </h2>
-          <p className="mt-3 leading-7">
+          <p className="art-description">
             I&apos;ll add featured pieces, case studies, and process notes. For now,
             view my professional 3D portfolio. Personal art lives on ArtStation.
           </p>
@@ -27,17 +27,17 @@ export default function ThreeDPage() {
             href="https://www.figma.com/deck/ILevoHEMtB8pjgQzPGyReq/Portfolio?node-id=1-2595&t=XAZFTDxvnXUT1hOO-1"
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex items-center font-medium text-foreground underline underline-offset-4"
+            className="art-link text-link"
           >
-            view the portfolio{"\u00A0"}→
+            view the portfolio
           </a>
           <a
             href="https://aaronouyang.artstation.com/"
             target="_blank"
             rel="noreferrer"
-            className="mt-4 flex w-fit items-center text-sm font-medium text-foreground underline underline-offset-4"
+            className="art-link text-link"
           >
-            visit ArtStation{"\u00A0"}→
+            visit ArtStation
           </a>
         </section>
       </div>

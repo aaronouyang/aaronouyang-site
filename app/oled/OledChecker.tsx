@@ -13,7 +13,7 @@ type Result = {
   total: number;
 };
 
-const buttonStyle = "cursor-pointer rounded-md border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground disabled:cursor-wait disabled:opacity-50";
+const buttonStyle = "checker-button";
 const number = (value: number) => value.toLocaleString();
 
 export default function OledChecker() {
@@ -137,7 +137,7 @@ export default function OledChecker() {
         if (file) void analyze(file);
         else setError("Drop an image file from your device, or copy and paste the image itself.");
       }}
-      className={dragging ? "rounded-lg outline-2 outline-offset-4 outline-foreground" : ""}
+      className={`checker ${dragging ? "is-dragging" : ""}`}
     >
       <input
         ref={input}
@@ -151,32 +151,32 @@ export default function OledChecker() {
           event.target.value = "";
         }}
       />
-      <div className="rounded-lg border border-dashed border-muted/40 bg-black px-5 py-9 text-center sm:px-8">
-        <svg className="mx-auto mb-4 text-muted" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
+      <div className="checker-dropzone">
+        <svg className="checker-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
           <rect x="3" y="3" width="18" height="18" rx="3" />
           <circle cx="8.5" cy="8.5" r="1.5" />
           <path d="m3 17 5-5 4 4 4-6 5 7" />
         </svg>
-        <p className="mb-5 font-medium">{dragging ? "Drop your image here" : "Choose a wallpaper to check."}</p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <button type="button" className={`${buttonStyle} bg-foreground text-background hover:bg-white`} onClick={() => input.current?.click()}>
+        <p className="checker-prompt">{dragging ? "Drop your image here" : "Choose a wallpaper to check."}</p>
+        <div className="checker-actions">
+          <button type="button" className={`${buttonStyle} checker-button-primary`} onClick={() => input.current?.click()}>
             Choose image
           </button>
           <button type="button" className={buttonStyle} onClick={pasteFromClipboard} disabled={busy}>Paste image</button>
         </div>
-        <p className="mt-4 text-xs leading-5 text-muted">Or drop an image here / paste with Ctrl or ⌘ + V</p>
-        <p className="mt-1 text-xs leading-5 text-muted">Stays on your device. No image uploads to a server.</p>
+        <p className="checker-hint">Or drop an image here / paste with Ctrl or ⌘ + V</p>
+        <p className="checker-privacy">Stays on your device. No image uploads to a server.</p>
       </div>
       <div role="status" aria-live="polite" aria-atomic="true">
-        {busy && <p className="py-6 text-sm text-muted">Checking every pixel…</p>}
+        {busy && <p className="checker-loading">Checking every pixel…</p>}
         {result && (
-          <section className="mt-8" aria-label="Image analysis">
+          <section className="checker-result" aria-label="Image analysis">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <p className="text-5xl font-medium tracking-tight sm:text-6xl">{formatPercentage(result.black, result.total)}</p>
+              <p className="checker-percentage">{formatPercentage(result.black, result.total)}</p>
               <h2 className="text-base text-muted">true black</h2>
             </div>
-            <div className="my-5 h-2 overflow-hidden rounded-full bg-white/20" aria-hidden="true">
-              <div className="h-full bg-foreground" style={{ width: `${result.black / result.total * 100}%` }} />
+            <div className="checker-meter" aria-hidden="true">
+              <div className="checker-meter-fill" style={{ width: `${result.black / result.total * 100}%` }} />
             </div>
             <p className="text-sm leading-6 text-muted">{number(result.black)} of {number(result.total)} pixels are fully opaque #000000.</p>
             {result.transparent > 0 && <p className="mt-2 text-sm leading-6 text-muted">{number(result.transparent)} {result.transparent === 1 ? "pixel has" : "pixels have"} transparency. Transparent pixels stay in the total, but don’t count as true black.</p>}
@@ -189,7 +189,7 @@ export default function OledChecker() {
           </section>
         )}
       </div>
-      {error && <p role="alert" className="mt-4 text-sm leading-6 text-red-300">{error}</p>}
+      {error && <p role="alert" className="checker-error">{error}</p>}
     </div>
   );
 }

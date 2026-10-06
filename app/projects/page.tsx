@@ -44,28 +44,26 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <SiteShell>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <SiteShell title="Projects">
+      <div className="project-list">
         {projects.map((project) => (
           <article
             key={project.title}
-            className="flex h-full flex-col justify-between gap-4 rounded-lg border border-border bg-card p-5 text-sm text-muted transition-colors hover:border-muted/30"
+            className="project-entry"
           >
-            <div className="grid gap-3">
-              <h2 className="text-base font-semibold text-foreground">
+            <div className="project-copy">
+              <h2 className="project-title">
                 {project.title}
               </h2>
-              <p className="leading-7">{project.description}</p>
+              <p className="project-description">{project.description}</p>
             </div>
             <a
               href={project.href}
               target={project.href.startsWith("http") ? "_blank" : undefined}
               rel={project.href.startsWith("http") ? "noreferrer" : undefined}
-              className="inline-flex items-center font-medium text-foreground underline underline-offset-4"
+              className="project-link text-link"
             >
               {project.label}
-              {"\u00A0"}
-              <span aria-hidden="true">→</span>
             </a>
           </article>
         ))}

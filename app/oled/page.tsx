@@ -8,13 +8,13 @@ export const metadata = {
 
 export default function OledPage() {
   return (
-    <SiteShell title="OLED wallpaper checker">
-      <p className="-mt-4 mb-8 text-base leading-7 text-muted">
+    <SiteShell title="OLED wallpaper checker" className="tool-page">
+      <p className="page-intro">
         See what percentage of your wallpaper is true black.
       </p>
       <OledChecker />
-      <section className="mt-10 space-y-3 border-t border-border pt-6 text-sm leading-6 text-muted">
-        <h2 className="font-medium text-foreground">What counts as true black?</h2>
+      <section className="tool-explainer">
+        <h2 className="section-title">What counts as true black?</h2>
         <p>
           Only fully opaque pixels with a color of <code className="text-foreground">#000000</code>.
           Almost-black pixels still light up; transparent pixels depend on what’s behind them,

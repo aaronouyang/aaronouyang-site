@@ -7,18 +7,19 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <SiteShell>
-      <div className="grid gap-8 text-sm text-muted -mt-4">
-        <section className="grid gap-2">
-          <p className="italic text-foreground/90">currently</p>
-          <ul className="list-arrow">
+    <SiteShell className="about-page">
+      <h1 className="name-title"><span>Aaron</span><span>Ouyang</span></h1>
+      <div className="about-index">
+        <section className="bio-section">
+          <h2>currently</h2>
+          <ul className="bio-list">
             <li>
               engineer @{" "}
               <Link
                 href="https://www.ravl.io/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 RAVL
               </Link>
@@ -29,7 +30,7 @@ export default function AboutPage() {
                 href="https://www.noctia.ca/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 Noctia
               </Link>
@@ -40,7 +41,7 @@ export default function AboutPage() {
                 href="https://dpad.quest/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 DPAD
               </Link>
@@ -49,16 +50,16 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <section className="grid gap-2">
-          <p className="italic text-foreground/90">previously</p>
-          <ul className="list-arrow">
+        <section className="bio-section">
+          <h2>previously</h2>
+          <ul className="bio-list">
             <li>
               CS @{" "}
               <Link
                 href="https://www.queensu.ca/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 Queen&apos;s
               </Link>
@@ -69,7 +70,7 @@ export default function AboutPage() {
                 href="https://chromewebstore.google.com/detail/youtube-subscription-fold/lfhpffnakgkibgfggclnnijmphgclcmk"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 Chrome extension
               </Link>{" "}
@@ -81,7 +82,7 @@ export default function AboutPage() {
                 href="https://miedu.ca/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 Mi Education
               </Link>
@@ -92,7 +93,7 @@ export default function AboutPage() {
                 href="https://iyk.app"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold underline underline-offset-4"
+                className="text-link"
               >
                 IYK
               </Link>
@@ -100,12 +101,13 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <div className="pt-2">
+        <div className="about-project-link">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-border/50"
+            className="action-link"
           >
             check out my projects
+            <svg width="34" height="20" viewBox="0 0 34 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M1 10h30m-8-8 8 8-8 8" /></svg>
           </Link>
         </div>
       </div>

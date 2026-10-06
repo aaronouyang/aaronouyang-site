@@ -76,9 +76,9 @@ export default async function VideosPage() {
   );
 
   return (
-    <SiteShell>
-      <div className="grid gap-10 text-sm text-muted">
-        <section className="max-w-2xl text-base leading-7 text-foreground">
+    <SiteShell title="Videos">
+      <div className="video-page">
+        <section className="page-intro">
           <p>
             Sometimes I make videos about art or philosophy or . . . other
             things. Honestly I have a hard time pinning down what{" "}
@@ -87,7 +87,7 @@ export default async function VideosPage() {
         </section>
 
         {videos.length > 0 ? (
-          <div className="mx-auto grid w-full max-w-xl gap-5">
+          <div className="video-grid">
             {videos.map((video) => {
               return (
                 <a
@@ -95,21 +95,21 @@ export default async function VideosPage() {
                   href={video.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-muted/40 hover:no-underline"
+                  className="video-entry"
                 >
-                  <div className="relative aspect-video overflow-hidden bg-border">
+                  <div className="video-image">
                     <Image
                       src={video.thumbnail}
                       alt=""
                       fill
-                      sizes="(min-width: 640px) 576px, calc(100vw - 48px)"
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      sizes="(min-width: 1051px) 32vw, (min-width: 701px) 55vw, calc(100vw - 48px)"
+                      className="object-cover"
                     />
                   </div>
-                  <div className="p-5">
-                    <p className="text-sm font-medium leading-7 text-foreground">
+                  <div className="video-caption">
+                    <h2>
                       {video.title}
-                    </p>
+                    </h2>
                   </div>
                 </a>
               );
