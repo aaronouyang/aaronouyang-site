@@ -27,6 +27,13 @@ const projects = [
     label: "Chrome Web Store",
   },
   {
+    title: "OLED wallpaper checker",
+    description:
+      "Check what percentage of a wallpaper is true black. Upload or paste an image for a pixel-by-pixel analysis, all on your device.",
+    href: "/oled",
+    label: "check a wallpaper",
+  },
+  {
     title: "3D Work",
     description:
       "Selected 3D work spanning commercial and personal projects. Full archive coming soon.",
