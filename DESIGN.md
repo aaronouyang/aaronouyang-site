@@ -159,7 +159,7 @@ Portfolio content remains open and mostly square. Thumbnail corners, control cor
 
 ### Navigation and footer
 
-A 44px sun/moon button in the upper-right switches themes. A 500ms circular reveal grows from the button using the native View Transition API; reduced motion or unsupported browsers switch immediately. The selection is stored locally, and storage restrictions do not prevent switching. Pending animations are canceled when navigating away. No animation dependencies or idle loops are used.
+A 44px sun/moon button is fixed to the viewport’s upper-right with equal top and right insets (16–24px, increased equally for device safe areas). It switches themes. A 500ms circular reveal grows from the button using the native View Transition API; reduced motion or unsupported browsers switch immediately. The selection is stored locally, and storage restrictions do not prevent switching. Pending animations are canceled when navigating away. No animation dependencies or idle loops are used.
 
 The rail uses muted sans-serif links; hover and `aria-current="page"` turn pale olive. On desktop, thin gutter markers extend with pointer proximity over a 110px radius, while labels shift up to 14px with a 240ms ease-out. Hit areas remain stationary. Current and keyboard-focused links keep an extended marker; keyboard focus also shifts the label. There is no idle animation. Reduced motion disables proximity and label movement. Mobile navigation uses 18px text with 8px vertical padding, omits markers and movement, and underlines the current page. Footer links are underlined, with a 36px minimum height increasing to 44px on mobile.
 
