@@ -101,15 +101,6 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <div className="about-project-link">
-          <Link
-            href="/projects"
-            className="action-link"
-          >
-            check out my projects
-            <svg width="34" height="20" viewBox="0 0 34 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M1 10h30m-8-8 8 8-8 8" /></svg>
-          </Link>
-        </div>
       </div>
     </SiteShell>
   );

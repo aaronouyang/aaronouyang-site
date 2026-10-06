@@ -19,7 +19,7 @@ OWN-WORLD: Flat charcoal, ivory, stone, and pale olive. Literary upright serif d
 
 STORY: Read Aaron's current and previous work; browse projects, videos, 3D, and the useful OLED tool. Preserve supplied copy, routes, resume, and contact links.
 
-FIRST VIEWPORT: At desktop a small name and vertical navigation occupy the left fifth. A large two-line Aaron Ouyang anchors the main area; two biography columns sit underneath. A project link closes the main content. Footer links sit bottom right, copyright bottom left. Mobile stacks navigation, name, biography, and footer in reading order.
+FIRST VIEWPORT: At desktop a small name and vertical navigation occupy the left fifth. A large two-line Aaron Ouyang anchors the main area; two biography columns sit underneath. Footer links sit bottom right, copyright bottom left. Mobile stacks navigation, name, biography, and footer in reading order.
 
 FORM: Artist monograph, grounded candidate 3, seed 6e6ace38. Signature interaction: active navigation and underlines shift to pale olive; hover is quiet and immediate, reduced motion respected.
 

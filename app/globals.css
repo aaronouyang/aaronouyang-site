@@ -52,9 +52,9 @@ button, input { accent-color: var(--accent); }
   margin-inline: auto;
   padding: 34px var(--space-page) 36px;
   display: grid;
-  grid-template-columns: minmax(160px, .75fr) minmax(0, 3fr);
+  grid-template-columns: minmax(160px, .65fr) minmax(0, 3fr);
   grid-template-rows: 1fr auto;
-  column-gap: clamp(40px, 5.5vw, 84px);
+  column-gap: clamp(32px, 4.5vw, 68px);
 }
 .site-header { align-self: start; }
 .site-name { font-family: var(--font-display), Georgia, serif; font-size: 22px; color: var(--muted); white-space: nowrap; }
@@ -81,7 +81,6 @@ button, input { accent-color: var(--accent); }
 .bio-section h2 { font-family: var(--font-plex-sans), sans-serif; font-weight: 400; font-size: inherit; color: var(--muted); margin-bottom: 23px; }
 .bio-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 21px; }
 .text-link { text-decoration: underline; }
-.about-project-link { grid-column: 1 / -1; }
 .action-link { display: inline-flex; align-items: center; gap: 18px; color: var(--accent); font-size: clamp(18px, 1.6vw, 24px); text-decoration: underline; }
 .action-link svg { flex: none; transition: transform 200ms var(--ease-out); }
 .action-link:hover svg { transform: translateX(4px); }
@@ -92,7 +91,7 @@ button, input { accent-color: var(--accent); }
 .skip-link:focus { transform: translateY(0); }
 
 @media (max-width: 1050px) {
-  .site-frame { grid-template-columns: 160px minmax(0, 1fr); column-gap: 48px; }
+  .site-frame { grid-template-columns: 160px minmax(0, 1fr); column-gap: 40px; }
   .name-title { font-size: clamp(110px, 14vw, 146px); }
   .about-index { grid-template-columns: 1fr; gap: 38px; margin-top: 48px; }
   .bio-section { max-width: 32ch; }
@@ -128,18 +127,52 @@ button, input { accent-color: var(--accent); }
 /* Shared page rhythm, with each kind of work given room to read. */
 .page-intro { max-width: 58ch; font-size: clamp(18px, 1.55vw, 23px); line-height: 1.65; color: var(--muted); margin-bottom: 48px; }
 .project-list { display: grid; }
-.project-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; padding-block: 32px; border-top: 1px solid var(--border); }
+.project-entry { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: 40px; padding-block: 32px; border-top: 1px solid var(--border); }
 .project-entry:first-child { padding-top: 0; border-top: 0; }
-.project-copy { display: grid; grid-template-columns: minmax(160px, .9fr) minmax(0, 1.4fr); gap: 28px; }
 .project-title { font-family: var(--font-display), Georgia, serif; font-size: clamp(26px, 2.3vw, 36px); line-height: 1.15; font-weight: 400; letter-spacing: -.02em; text-wrap: pretty; }
 .project-description { color: var(--muted); font-size: 17px; line-height: 1.75; }
-.project-link { color: var(--accent); align-self: start; font-size: 15px; padding-block: 5px; }
+.project-title-link { text-decoration: underline; text-decoration-color: var(--border); text-decoration-thickness: 1px; text-underline-offset: .15em; }
+.project-title-link:hover { text-decoration-color: var(--accent); }
 .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 28px; }
 .video-entry { display: block; min-width: 0; }
 .video-image { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--card); border-radius: 3px; }
 .video-caption { padding-top: 16px; }
 .video-caption h2 { font-size: 18px; line-height: 1.5; font-weight: 400; text-wrap: pretty; }
 .video-entry:hover h2 { text-decoration: underline; text-underline-offset: .22em; }
+
+/* Interaction-only motion: no timers, idle animation, or layout changes. */
+.about-page .bio-section .text-link {
+  display: inline-block;
+  text-decoration-color: var(--muted);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-size 280ms var(--ease-out), transform 240ms var(--ease-out), color 180ms var(--ease-out);
+}
+.project-title-link span { display: inline-block; }
+.project-title-link:focus-visible { color: var(--accent); text-decoration-color: var(--accent); }
+.about-page .bio-section .text-link:focus-visible { background-size: 100% 2px; color: var(--accent); }
+.video-entry:focus-visible h2 { color: var(--accent); text-decoration: underline; text-underline-offset: .22em; }
+.video-caption h2 { transition: color 240ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .about-page .bio-section .text-link:hover { background-size: 100% 2px; }
+  .video-entry:hover h2 { color: var(--accent); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .project-title-link span { transition: transform 240ms var(--ease-out); }
+  .video-image img { transition: transform 300ms var(--ease-out); }
+  .about-page .bio-section .text-link:focus-visible { transform: translateY(-2px); }
+  .project-title-link:focus-visible span { transform: translateX(4px); }
+  .video-entry:focus-visible .video-image img { transform: scale(1.02); }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .about-page .bio-section .text-link:hover { transform: translateY(-2px); }
+  .project-title-link:hover span { transform: translateX(4px); }
+  .video-entry:hover .video-image img { transform: scale(1.02); }
+}
 .art-page { max-width: 700px; }
 .art-note { padding-top: 36px; border-top: 1px solid var(--border); }
 .section-title { font-size: 22px; font-weight: 400; line-height: 1.4; color: var(--foreground); }
@@ -172,7 +205,6 @@ button, input { accent-color: var(--accent); }
 
 @media (max-width: 1200px) {
   .project-entry { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .project-copy { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .project-description { max-width: 58ch; }
 }
 @media (max-width: 1050px) {
@@ -182,7 +214,6 @@ button, input { accent-color: var(--accent); }
   .page-intro { margin-bottom: 32px; }
   .project-entry { padding-block: 28px; }
   .project-title { font-size: 32px; }
-  .project-link { min-height: 44px; display: inline-flex; align-items: center; }
   .video-grid { gap: 32px; }
   .video-caption { padding-top: 12px; }
   .checker-dropzone { padding: 28px 16px; }

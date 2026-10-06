@@ -139,9 +139,9 @@ The name is a two-line display. Page headings are smaller; project titles use th
 
 ## Layout
 
-The centered site frame is capped at 1680px and fills at least the viewport height. Its desktop grid uses `minmax(160px, .75fr) minmax(0, 3fr)` with a fluid 40–84px column gap and the page-spacing token at the edges. The main area begins 68px below the frame’s top padding. Navigation is a vertical rail.
+The centered site frame is capped at 1680px and fills at least the viewport height. Its desktop grid uses `minmax(160px, .65fr) minmax(0, 3fr)` with a fluid 32–68px column gap and the page-spacing token at the edges. The main area begins 68px below the frame’s top padding. Navigation is a vertical rail.
 
-At 1200px, project rows stack their title, description, and action. At 1050px, the shell uses a 160px rail and 48px gap; biography and video grids become one column. At 700px, the shell becomes a vertical flex layout, navigation wraps horizontally, and main top padding becomes 44px. The name scales to `clamp(86px, 23vw, 145px)` with a .9 line height; ordinary page headings use `clamp(48px, 12vw, 76px)`.
+At 1200px, project rows stack their linked title and description. At 1050px, the shell uses a 160px rail and 40px gap; biography and video grids become one column. At 700px, the shell becomes a vertical flex layout, navigation wraps horizontally, and main top padding becomes 44px. The name scales to `clamp(86px, 23vw, 145px)` with a .9 line height; ordinary page headings use `clamp(48px, 12vw, 76px)`.
 
 Copyright is left aligned and footer links sit on the right. On mobile they occupy separate rows; links retain right alignment and wrap. Video thumbnails retain a 16:9 ratio. Tool content is capped at 760px, and explanatory prose at 65ch.
 
@@ -163,6 +163,8 @@ The rail uses muted sans-serif links; hover and `aria-current="page"` turn pale 
 
 ### Text actions
 
+About-page biography links lift 2px and draw a 2px olive underline over 280ms on hover or keyboard focus. Project title text shifts 4px over 240ms while its hit area, description, and row divider stay fixed. Video thumbnails scale to 1.02 over 300ms within their crop, and captions turn olive. Pointer hover effects require a fine pointer with hover support; keyboard focus receives equivalent feedback. Reduced motion retains instant color and underline feedback without transforms. All effects use CSS, run only during interaction, and need no animation library or persistent rendering loop.
+
 Inline text links use thin underlines offset by .22em. Prominent actions pair olive underlined text with an inline SVG arrow. The arrow moves 4px on hover over 200ms. Color, background, and border transitions use 180ms and the shared ease-out curve.
 
 ### Tool buttons and upload area
@@ -173,7 +175,7 @@ The black dropzone centers its prompt and wrapping actions. Dragging adds an oli
 
 ### Portfolio entries and results
 
-Project rows organize a serif title, muted description, and olive text action; dividers separate successive rows. Video entries pair a thumbnail with a sans-serif caption; hover underlines the caption. The checker’s numeric result uses monospaced tabular figures above a 4px meter, followed by image details and a contained preview.
+Project rows use consistent columns for linked serif titles and muted descriptions; dividers separate successive rows. Titles have a subtle underline that turns olive on hover, and serve as the sole project link. Video entries pair a thumbnail with a sans-serif caption; hover underlines the caption. The checker’s numeric result uses monospaced tabular figures above a 4px meter, followed by image details and a contained preview.
 
 All links, buttons, and inputs receive a 2px olive focus outline with a 6px offset. Reduced-motion preferences disable transitions and the action-arrow translation.
 
