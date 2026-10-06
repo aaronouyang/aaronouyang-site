@@ -1,14 +1,21 @@
+import { IBM_Plex_Mono } from "next/font/google";
 import SiteShell from "../components/SiteShell";
 import OledChecker from "./OledChecker";
 
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata = {
-  title: "OLED wallpaper checker",
+  title: "OLED Wallpaper Checker",
   description: "Find out how much of your wallpaper is true black. Check an uploaded or pasted image privately, right on your device.",
 };
 
 export default function OledPage() {
   return (
-    <SiteShell title="OLED wallpaper checker" className="tool-page">
+    <SiteShell title="OLED Wallpaper Checker" className={`tool-page ${plexMono.variable}`}>
       <p className="page-intro">
         See what percentage of your wallpaper is true black.
       </p>

@@ -13,7 +13,6 @@ type Result = {
   total: number;
 };
 
-const buttonStyle = "checker-button";
 const number = (value: number) => value.toLocaleString();
 
 export default function OledChecker() {
@@ -64,6 +63,7 @@ export default function OledChecker() {
       if (!context) throw new Error("Your browser couldn’t read the image. Try another browser.");
       let black = 0;
       let transparent = 0;
+      let lastYield = performance.now();
       for (let y = 0; y < height; y += 512) {
         for (let x = 0; x < width; x += 1024) {
           if (id !== request.current) return;
@@ -73,8 +73,12 @@ export default function OledChecker() {
           const counts = countPixels(context.getImageData(0, 0, canvas.width, canvas.height).data);
           black += counts.black;
           transparent += counts.transparent;
+          // Bound each work slice independently of the image's aspect ratio.
+          if (performance.now() - lastYield >= 8) {
+            await new Promise((resolve) => setTimeout(resolve, 0));
+            lastYield = performance.now();
+          }
         }
-        await new Promise((resolve) => setTimeout(resolve, 0));
       }
       if (id !== request.current) return;
       // Preview the same decoded frame, including for animated source images.
@@ -159,10 +163,10 @@ export default function OledChecker() {
         </svg>
         <p className="checker-prompt">{dragging ? "Drop your image here" : "Choose a wallpaper to check."}</p>
         <div className="checker-actions">
-          <button type="button" className={`${buttonStyle} checker-button-primary`} onClick={() => input.current?.click()}>
+          <button type="button" className="checker-button checker-button-primary" onClick={() => input.current?.click()}>
             Choose image
           </button>
-          <button type="button" className={buttonStyle} onClick={pasteFromClipboard} disabled={busy}>Paste image</button>
+          <button type="button" className="checker-button" onClick={pasteFromClipboard} disabled={busy}>Paste image</button>
         </div>
         <p className="checker-hint">Or drop an image here / paste with Ctrl or ⌘ + V</p>
         <p className="checker-privacy">Stays on your device. No image uploads to a server.</p>

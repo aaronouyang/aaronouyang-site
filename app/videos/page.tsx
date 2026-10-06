@@ -102,7 +102,7 @@ export default async function VideosPage() {
                       src={video.thumbnail}
                       alt=""
                       fill
-                      sizes="(min-width: 1051px) 32vw, (min-width: 701px) 55vw, calc(100vw - 48px)"
+                      sizes="(min-width: 1680px) 566px, (min-width: 1051px) 34vw, (min-width: 701px) calc(88vw - 200px), (min-width: 400px) 88vw, calc(100vw - 48px)"
                       className="object-cover"
                     />
                   </div>

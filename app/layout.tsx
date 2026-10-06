@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono, Bodoni_Moda } from "next/font/google";
+import { IBM_Plex_Sans, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: "400",
 });
 
 const display = Bodoni_Moda({
@@ -39,9 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem('site-theme')==='light')document.documentElement.dataset.theme='light'}catch{}` }} />
+      </head>
       <body
-        className={`${plexSans.variable} ${plexMono.variable} ${display.variable} antialiased`}
+        className={`${plexSans.variable} ${display.variable} antialiased`}
       >
         {children}
       </body>

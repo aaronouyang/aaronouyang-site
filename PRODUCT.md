@@ -21,7 +21,6 @@ Visitors exploring Aaron's work and people checking their wallpapers. Audience i
 - OLED analysis stays entirely on the visitor's device; upload, paste, and drag-and-drop must remain functional.
 - Keep the user's project descriptions verbatim, including Noctia's existing description.
 - No OLED link in the header; discover it through Projects.
-- This is a local aesthetic experiment, not a deployment or commit request.
 
 ## Brand Commitments
 

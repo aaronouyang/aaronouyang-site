@@ -156,11 +156,6 @@
         "name": "state-transition",
         "value": "180ms",
         "purpose": "Color, background, and border changes."
-      },
-      {
-        "name": "arrow-transition",
-        "value": "200ms",
-        "purpose": "Action arrow moves 4px; disabled for reduced motion."
       }
     ],
     "breakpoints": [
@@ -204,14 +199,6 @@
       "css": ".ds-nav {display:flex;flex-direction:column;align-items:flex-start;gap:20px;} .ds-nav a {font-size:clamp(26px,2.25vw,34px);line-height:1.5;text-decoration:none;color:var(--muted, #acada6);font-family: var(--font-plex-sans, \"IBM Plex Sans\"), sans-serif; transition: color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), background-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), border-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1));} .ds-nav a:hover,.ds-nav a[aria-current=\"page\"] {color:var(--accent, #c6c99f);} .ds-nav a:focus-visible { outline: 2px solid var(--accent, #c6c99f); outline-offset: 6px; } @media(max-width:700px){.ds-nav{flex-direction:row;flex-wrap:wrap;gap:0 28px}.ds-nav a{font-size:18px;padding-block:8px}} @media (prefers-reduced-motion: reduce) { [class^=\"ds-\"] { transition: none !important; } }"
     },
     {
-      "name": "Text action",
-      "kind": "custom",
-      "refersTo": "action-link",
-      "description": "Underlined action with a restrained directional cue.",
-      "html": "<a class=\"ds-action\" href=\"/projects\">See my projects <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></a>",
-      "css": ".ds-action{display:inline-flex;align-items:center;gap:18px;color:var(--accent, #c6c99f);font-size:clamp(18px,1.6vw,24px);text-decoration:underline;text-underline-offset:.22em;text-decoration-thickness:1px;font-family: var(--font-plex-sans, \"IBM Plex Sans\"), sans-serif; transition: color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), background-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), border-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1));}.ds-action svg{flex:none;transition:transform 200ms var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-action:hover svg{transform:translateX(4px)}.ds-action:focus-visible { outline: 2px solid var(--accent, #c6c99f); outline-offset: 6px; } @media(prefers-reduced-motion:reduce){.ds-action svg{transition:none}.ds-action:hover svg{transform:none}} @media (prefers-reduced-motion: reduce) { [class^=\"ds-\"] { transition: none !important; } }"
-    },
-    {
       "name": "Upload area",
       "kind": "custom",
       "refersTo": "dropzone",
@@ -223,9 +210,9 @@
       "name": "Project row",
       "kind": "custom",
       "refersTo": "project-row",
-      "description": "Aligned linked title and description columns.",
-      "html": "<article class=\"ds-project\"><h2 class=\"ds-title\"><a class=\"ds-project-link\" href=\"/oled\">OLED Wallpaper Checker</a></h2><p class=\"ds-copy\">Check a wallpaper on your device.</p></article>",
-      "css": ".ds-project{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:40px;padding:32px 0;border-top:1px solid var(--border,#36392f);font-family:var(--font-plex-sans,\"IBM Plex Sans\"),sans-serif}.ds-title{margin:0;font-family:var(--font-display,\"Bodoni Moda\"),Georgia,serif;font-size:clamp(26px,2.3vw,36px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:var(--foreground,#f0eee8)}.ds-copy{margin:0;color:var(--muted,#acada6);font-size:17px;line-height:1.75}.ds-project-link{align-self:start;padding-block:5px;color:var(--accent,#c6c99f);font-size:inherit;text-decoration:underline;text-decoration-color:var(--border,#36392f);text-underline-offset:.15em;font-family: var(--font-plex-sans, \"IBM Plex Sans\"), sans-serif; transition: color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), background-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), border-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1));}.ds-project-link:hover{color:var(--accent,#c6c99f)}.ds-project-link:focus-visible { outline: 2px solid var(--accent, #c6c99f); outline-offset: 6px; }@media(max-width:1200px){.ds-project{grid-template-columns:1fr;gap:16px}} @media (prefers-reduced-motion: reduce) { [class^=\"ds-\"] { transition: none !important; } }"
+      "description": "Aligned olive linked titles with diagonal arrows and description columns.",
+      "html": "<article class=\"ds-project\"><h2 class=\"ds-title\"><a class=\"ds-project-link\" href=\"/oled\">OLED Wallpaper Checker&nbsp;<svg style=\"display:inline-block;width:.6em;height:.6em\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a></h2><p class=\"ds-copy\">Check a wallpaper on your device.</p></article>",
+      "css": ".ds-project{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:40px;padding:32px 0;border-top:1px solid var(--border,#36392f);font-family:var(--font-plex-sans,\"IBM Plex Sans\"),sans-serif}.ds-title{margin:0;font-family:var(--font-display,\"Bodoni Moda\"),Georgia,serif;font-size:clamp(26px,2.3vw,36px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:var(--foreground,#f0eee8)}.ds-copy{margin:0;color:var(--muted,#acada6);font-size:17px;line-height:1.75}.ds-project-link{color:var(--accent,#c6c99f);font-size:inherit;text-decoration:underline;text-decoration-color:var(--accent,#c6c99f);text-underline-offset:.15em;font-family:inherit; transition: color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), background-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1)), border-color 180ms var(--ease-out, cubic-bezier(.16,1,.3,1));}.ds-project-link:hover{color:var(--accent,#c6c99f)}.ds-project-link:focus-visible { outline: 2px solid var(--accent, #c6c99f); outline-offset: 6px; }@media(max-width:1200px){.ds-project{grid-template-columns:1fr;gap:16px}} @media (prefers-reduced-motion: reduce) { [class^=\"ds-\"] { transition: none !important; } }"
     }
   ],
   "narrative": {

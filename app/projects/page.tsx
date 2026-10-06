@@ -1,4 +1,5 @@
 import SiteShell from "../components/SiteShell";
+import Link from "next/link";
 
 export const metadata = {
   title: "Projects",
@@ -8,7 +9,7 @@ const projects = [
   {
     title: "Noctia",
     description:
-      "After-hours AI receptionist that captures, summarizes, and prioritizes patient calls when offices are closed, helping staff review and follow up more efficiently. Increased after-hours call triage time by 300%.",
+      "After-hours AI receptionist that captures, summarizes, and prioritizes patient calls when offices are closed, helping staff review and follow up more efficiently. Increased after-hours call triage time efficiency by 300%.",
     href: "https://www.noctia.ca/",
   },
   {
@@ -47,14 +48,19 @@ export default function ProjectsPage() {
             className="project-entry"
           >
             <h2 className="project-title">
-              <a
+              <Link
                 href={project.href}
                 target={project.href.startsWith("http") ? "_blank" : undefined}
                 rel={project.href.startsWith("http") ? "noreferrer" : undefined}
                 className="project-title-link"
               >
-                <span>{project.title}</span>
-              </a>
+                <span>
+                  {project.title}{"\u00a0"}
+                  <svg className="project-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path d="M5 19 19 5M5 5h14v14" />
+                  </svg>
+                </span>
+              </Link>
             </h2>
             <p className="project-description">{project.description}</p>
           </article>

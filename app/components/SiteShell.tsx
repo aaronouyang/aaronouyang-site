@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import SiteNav from "./SiteNav";
+import ThemeToggle from "./ThemeToggle";
 
 const footerLinks = [
   { href: "https://github.com/aaronouyang", label: "GitHub" },
@@ -22,6 +23,7 @@ export default function SiteShell({ title, className = "", children }: SiteShell
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <Link href="/" className="site-name">Aaron Ouyang</Link>
+        <ThemeToggle />
         <SiteNav />
       </header>
       <main id="main-content" className="site-main" tabIndex={-1}>

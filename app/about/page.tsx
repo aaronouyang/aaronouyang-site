@@ -100,7 +100,6 @@ export default function AboutPage() {
             </li>
           </ul>
         </section>
-
       </div>
     </SiteShell>
   );

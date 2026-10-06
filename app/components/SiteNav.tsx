@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, type PointerEvent } from "react";
+import { useCallback, useEffect, useRef, type PointerEvent } from "react";
 
 const links = [
   { href: "/about", label: "about" },
@@ -14,28 +14,52 @@ const links = [
 export default function SiteNav() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
+  const itemRefs = useRef<HTMLAnchorElement[]>([]);
+  const motionQuery = useRef<MediaQueryList | null>(null);
+  const frame = useRef<number | null>(null);
+  const pointerY = useRef(0);
 
-  function resetProximity() {
-    navRef.current?.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
+  const resetProximity = useCallback(() => {
+    if (frame.current !== null) cancelAnimationFrame(frame.current);
+    frame.current = null;
+    itemRefs.current.forEach((link) => {
       link.style.removeProperty("--proximity");
     });
-  }
+  }, []);
+
+  useEffect(() => {
+    itemRefs.current = Array.from(navRef.current?.querySelectorAll<HTMLAnchorElement>("a") ?? []);
+    const query = window.matchMedia(
+      "(min-width: 701px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+    );
+    motionQuery.current = query;
+    query.addEventListener("change", resetProximity);
+    return () => {
+      query.removeEventListener("change", resetProximity);
+      resetProximity();
+    };
+  }, [resetProximity]);
 
   function updateProximity(event: PointerEvent<HTMLElement>) {
-    if (event.pointerType === "touch" || !window.matchMedia(
-      "(min-width: 701px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-    ).matches) return;
+    if (event.pointerType === "touch" || !motionQuery.current?.matches) return;
+    pointerY.current = event.clientY;
+    if (frame.current !== null) return;
 
-    const items = Array.from(event.currentTarget.querySelectorAll<HTMLAnchorElement>("a"));
-    // Measure the stationary hit areas before updating any visual styles.
-    const proximity = items.map((link) => {
-      const rect = link.getBoundingClientRect();
-      const distance = Math.abs(event.clientY - (rect.top + rect.height / 2));
-      const amount = Math.max(0, 1 - distance / 110);
-      return amount * amount * (3 - 2 * amount);
-    });
-    items.forEach((link, index) => {
-      link.style.setProperty("--proximity", proximity[index].toFixed(3));
+    frame.current = requestAnimationFrame(() => {
+      frame.current = null;
+      const items = itemRefs.current;
+      // Batch reads before writes, using only the latest pointer position.
+      const proximity = items.map((link) => {
+        const rect = link.getBoundingClientRect();
+        const distance = Math.abs(pointerY.current - (rect.top + rect.height / 2));
+        const amount = Math.max(0, 1 - distance / 110);
+        return (amount * amount * (3 - 2 * amount)).toFixed(3);
+      });
+      items.forEach((link, index) => {
+        if (link.style.getPropertyValue("--proximity") !== proximity[index]) {
+          link.style.setProperty("--proximity", proximity[index]);
+        }
+      });
     });
   }
 

@@ -81,8 +81,6 @@ components:
     typography: "{typography.navigation}"
   navigation-active:
     textColor: "{colors.accent}"
-  action-link:
-    textColor: "{colors.accent}"
   dropzone:
     backgroundColor: "{colors.true-black}"
     textColor: "{colors.foreground}"
@@ -111,7 +109,9 @@ Open space and restrained dividing lines organize the portfolio. The OLED checke
 
 ## Colors
 
-The palette is warm and subdued, with one pale olive accent. The frontmatter records the exact source values.
+The palette is warm and subdued, with one pale olive accent. The frontmatter records the dark theme values. Dark remains the default; a saved light-mode preference is applied before first paint.
+
+Light mode uses background `#f2f0e8`, foreground `#20251f`, muted `#5c6357`, accent `#626c32`, card `#e5e7dc`, border `#ced0c2`, control border `#737b69`, and error `#a03125`. The OLED upload area retains its dark palette and true-black background in both modes.
 
 ### Primary
 
@@ -131,7 +131,7 @@ The error color is reserved for tool feedback, not a second brand accent.
 
 ## Typography
 
-Bodoni Moda regular, with Georgia as fallback, supplies the name, page headings, and project titles. IBM Plex Sans supplies navigation, prose, and controls. IBM Plex Mono supplies the OLED percentage with tabular numerals. Exact role tokens are in the frontmatter; weights remain restrained.
+Bodoni Moda regular, with Georgia as fallback, supplies the name, page headings, and project titles. IBM Plex Sans supplies navigation, prose, and controls. IBM Plex Mono supplies the OLED percentage with tabular numerals and loads only on the OLED route. All three families load only their used regular weight. Exact role tokens are in the frontmatter; weights remain restrained.
 
 **The Display Type Rule.** Use regular Bodoni Moda for display headings; preserve its mixed-case letterforms.
 
@@ -159,13 +159,15 @@ Portfolio content remains open and mostly square. Thumbnail corners, control cor
 
 ### Navigation and footer
 
+A 44px sun/moon button in the upper-right switches themes. A 500ms circular reveal grows from the button using the native View Transition API; reduced motion or unsupported browsers switch immediately. The selection is stored locally, and storage restrictions do not prevent switching. Pending animations are canceled when navigating away. No animation dependencies or idle loops are used.
+
 The rail uses muted sans-serif links; hover and `aria-current="page"` turn pale olive. On desktop, thin gutter markers extend with pointer proximity over a 110px radius, while labels shift up to 14px with a 240ms ease-out. Hit areas remain stationary. Current and keyboard-focused links keep an extended marker; keyboard focus also shifts the label. There is no idle animation. Reduced motion disables proximity and label movement. Mobile navigation uses 18px text with 8px vertical padding, omits markers and movement, and underlines the current page. Footer links are underlined, with a 36px minimum height increasing to 44px on mobile.
 
 ### Text actions
 
-About-page biography links lift 2px and draw a 2px olive underline over 280ms on hover or keyboard focus. Project title text shifts 4px over 240ms while its hit area, description, and row divider stay fixed. Video thumbnails scale to 1.02 over 300ms within their crop, and captions turn olive. Pointer hover effects require a fine pointer with hover support; keyboard focus receives equivalent feedback. Reduced motion retains instant color and underline feedback without transforms. All effects use CSS, run only during interaction, and need no animation library or persistent rendering loop.
+About-page biography labels are italic. Biography links and 3D portfolio links have a faint 1px resting underline; they lift 2px and draw a 2px olive underline over 280ms on hover or keyboard focus. Project title text shifts 4px over 240ms while its hit area, description, and row divider stay fixed. Video thumbnails scale to 1.02 over 300ms within their crop, and captions turn olive. Pointer hover effects require a fine pointer with hover support; keyboard focus receives equivalent feedback. Reduced motion retains instant color and underline feedback without transforms. All effects use CSS, run only during interaction, and need no animation library or persistent rendering loop.
 
-Inline text links use thin underlines offset by .22em. Prominent actions pair olive underlined text with an inline SVG arrow. The arrow moves 4px on hover over 200ms. Color, background, and border transitions use 180ms and the shared ease-out curve.
+Inline text links use thin underlines offset by .22em. Color, background, and border transitions use 180ms and the shared ease-out curve.
 
 ### Tool buttons and upload area
 
@@ -175,9 +177,9 @@ The black dropzone centers its prompt and wrapping actions. Dragging adds an oli
 
 ### Portfolio entries and results
 
-Project rows use consistent columns for linked serif titles and muted descriptions; dividers separate successive rows. Titles have a subtle underline that turns olive on hover, and serve as the sole project link. Video entries pair a thumbnail with a sans-serif caption; hover underlines the caption. The checker’s numeric result uses monospaced tabular figures above a 4px meter, followed by image details and a contained preview.
+Project rows use consistent columns for linked serif titles and muted descriptions; dividers separate successive rows. Titles are olive and underlined, with a small diagonal arrow for both internal and external destinations, and serve as the sole project link. Video entries pair a thumbnail with a sans-serif caption; hover underlines the caption. The checker’s numeric result uses monospaced tabular figures above a 4px meter, followed by image details and a contained preview.
 
-All links, buttons, and inputs receive a 2px olive focus outline with a 6px offset. Reduced-motion preferences disable transitions and the action-arrow translation.
+All links, buttons, and inputs receive a 2px olive focus outline with a 6px offset. Reduced-motion preferences disable transitions and interaction transforms.
 
 ## Do's and Don'ts
 
