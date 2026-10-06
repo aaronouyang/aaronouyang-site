@@ -15,21 +15,21 @@ const projects = [
   {
     title: "DPAD",
     description:
-      "Social game-ranking site where players build personal ladders with an automatic scoring system, view friends' lists and ratings, and discuss picks in comments.",
+      "Beli for video games.",
     href: "https://dpad.quest/",
     label: "live site",
   },
   {
     title: "YouTube Subscription Folders",
     description:
-      "Chrome extension for organizing YouTube subscriptions into collapsible folders with drag & drop and light/dark mode compatibility.",
+      "Got sick of the inability to organize Youtube subscriptions.",
     href: "https://chromewebstore.google.com/detail/youtube-subscription-fold/lfhpffnakgkibgfggclnnijmphgclcmk",
     label: "Chrome Web Store",
   },
   {
-    title: "OLED wallpaper checker",
+    title: "OLED Wallpaper Checker",
     description:
-      "Check what percentage of a wallpaper is true black. Upload or paste an image for a pixel-by-pixel analysis, all on your device.",
+      "I use wallpapers that are mostly true black to save battery on my phone; I wanted to see exactly how black my wallpaper was.",
     href: "/oled",
     label: "check a wallpaper",
   },
