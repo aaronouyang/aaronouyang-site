@@ -160,7 +160,7 @@ button, input { accent-color: var(--accent); }
 .video-entry:hover h2 { text-decoration: underline; text-underline-offset: .22em; }
 
 /* Interaction-only motion: no timers, idle animation, or layout changes. */
-.about-page .bio-section .text-link, .art-link {
+.about-page .bio-section .text-link, .art-link, .footer-links a {
   display: inline-block;
   text-decoration-thickness: 1px;
   text-decoration-color: color-mix(in srgb, var(--muted) 55%, transparent);
@@ -170,24 +170,25 @@ button, input { accent-color: var(--accent); }
   background-size: 0% 2px;
   transition: background-size 280ms var(--ease-out), transform 240ms var(--ease-out), color 180ms var(--ease-out);
 }
+.footer-links a { display: inline-flex; background-position: left calc(50% + .75em); }
 .project-title-link span { display: inline-block; }
 .project-title-link:focus-visible { color: var(--accent); text-decoration-color: var(--accent); }
-.about-page .bio-section .text-link:focus-visible, .art-link:focus-visible { background-size: 100% 2px; color: var(--accent); }
+.about-page .bio-section .text-link:focus-visible, .art-link:focus-visible, .footer-links a:focus-visible { background-size: 100% 2px; color: var(--accent); }
 .video-entry:focus-visible h2 { color: var(--accent); text-decoration: underline; text-underline-offset: .22em; }
 .video-caption h2 { transition: color 240ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) {
-  .about-page .bio-section .text-link:hover, .art-link:hover { background-size: 100% 2px; }
+  .about-page .bio-section .text-link:hover, .art-link:hover, .footer-links a:hover { background-size: 100% 2px; }
   .video-entry:hover h2 { color: var(--accent); }
 }
 @media (prefers-reduced-motion: no-preference) {
   .project-title-link span { transition: transform 240ms var(--ease-out); }
   .video-image img { transition: transform 300ms var(--ease-out); }
-  .about-page .bio-section .text-link:focus-visible, .art-link:focus-visible { transform: translateY(-2px); }
+  .about-page .bio-section .text-link:focus-visible, .art-link:focus-visible, .footer-links a:focus-visible { transform: translateY(-2px); }
   .project-title-link:focus-visible span { transform: translateX(4px); }
   .video-entry:focus-visible .video-image img { transform: scale(1.02); }
 }
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .about-page .bio-section .text-link:hover, .art-link:hover { transform: translateY(-2px); }
+  .about-page .bio-section .text-link:hover, .art-link:hover, .footer-links a:hover { transform: translateY(-2px); }
   .project-title-link:hover span { transform: translateX(4px); }
   .video-entry:hover .video-image img { transform: scale(1.02); }
 }

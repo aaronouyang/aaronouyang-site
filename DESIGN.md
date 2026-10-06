@@ -165,7 +165,7 @@ The rail uses muted sans-serif links; hover and `aria-current="page"` turn pale 
 
 ### Text actions
 
-About-page biography labels are italic. Biography links and 3D portfolio links have a faint 1px resting underline; they lift 2px and draw a 2px olive underline over 280ms on hover or keyboard focus. Project title text shifts 4px over 240ms while its hit area, description, and row divider stay fixed. Video thumbnails scale to 1.02 over 300ms within their crop, and captions turn olive. Pointer hover effects require a fine pointer with hover support; keyboard focus receives equivalent feedback. Reduced motion retains instant color and underline feedback without transforms. All effects use CSS, run only during interaction, and need no animation library or persistent rendering loop.
+About-page biography labels are italic. Biography, 3D portfolio, and footer links have a faint 1px resting underline; they lift 2px and draw a 2px olive underline over 280ms on hover or keyboard focus. Project title text shifts 4px over 240ms while its hit area, description, and row divider stay fixed. Video thumbnails scale to 1.02 over 300ms within their crop, and captions turn olive. Pointer hover effects require a fine pointer with hover support; keyboard focus receives equivalent feedback. Reduced motion retains instant color and underline feedback without transforms. All effects use CSS, run only during interaction, and need no animation library or persistent rendering loop.
 
 Inline text links use thin underlines offset by .22em. Color, background, and border transitions use 180ms and the shared ease-out curve.
 
