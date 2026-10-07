@@ -27,7 +27,7 @@ const projects = [
   {
     title: "OLED Wallpaper Checker",
     description:
-      "I use wallpapers that are mostly true black to save battery on my phone; I wanted to see exactly how black my wallpaper was.",
+      "I use wallpapers that are mostly true black to save battery on my phone and I wanted to see exactly how black my wallpaper was.",
     href: "/oled",
   },
   {
